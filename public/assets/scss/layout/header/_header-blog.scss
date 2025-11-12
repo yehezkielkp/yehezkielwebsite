@@ -1,0 +1,164 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  Header Blog Specific Styles
+/*----------------------------------------*/
+
+.tp-header-blog {
+    // Base header blog styles - inherit from header-11 but with modifications
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    
+    // Logo styles
+    .tp-header-logo {
+        & img {
+            height: auto;
+        }
+    }
+    
+    // Menu styles
+    .tp-header-menu {
+        & > nav {
+            & > ul {
+                & > li {
+                    & > a {
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 1;
+                        color: var(--tp-common-white);
+                        text-transform: capitalize;
+                        padding: 25px 20px;
+                        position: relative;
+                        transition: .3s;
+                        
+                        &:hover {
+                            color: var(--tp-theme-primary);
+                        }
+                    }
+                    
+                    &:last-child {
+                        & > a {
+                            padding-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Right action styles
+    .tp-inner-header-right-action {
+        .tp-inner-header-btn {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1;
+            color: var(--tp-common-white);
+            text-transform: capitalize;
+            padding: 15px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            transition: .3s;
+            
+            &:hover {
+                background-color: var(--tp-theme-primary);
+                border-color: var(--tp-theme-primary);
+                color: var(--tp-common-white);
+            }
+        }
+        
+        .tp-offcanvas-open-btn {
+            & svg {
+                & path {
+                    fill: var(--tp-common-white);
+                }
+            }
+        }
+    }
+    
+    // Sticky header styles - specific for blog
+    &.header-sticky {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+        animation: slideDown 0.35s ease both;
+        z-index: 999;
+        
+        // Change text colors to black when sticky with higher specificity
+        .tp-header-menu > nav > ul > li > a {
+            color: var(--tp-common-black) !important;
+            
+            &:hover {
+                color: var(--tp-theme-primary) !important;
+            }
+        }
+        
+        .tp-inner-header-right-action {
+            .tp-inner-header-btn {
+                color: var(--tp-common-black) !important;
+                border-color: rgba(0, 0, 0, 0.2) !important;
+                
+                &:hover {
+                    background-color: var(--tp-theme-primary) !important;
+                    border-color: var(--tp-theme-primary) !important;
+                    color: var(--tp-common-white) !important;
+                }
+            }
+            
+            .tp-offcanvas-open-btn svg path {
+                fill: var(--tp-common-black) !important;
+            }
+        }
+    }
+}
+
+// Additional specific targeting for sticky header blog with maximum specificity
+.tp-header-area.tp-header-blog.header-sticky {
+    .tp-header-menu nav ul li a {
+        color: var(--tp-common-black) !important;
+    }
+    
+    .tp-inner-header-right-action .tp-inner-header-btn {
+        color: var(--tp-common-black) !important;
+        border-color: rgba(0, 0, 0, 0.2) !important;
+    }
+    
+    .tp-offcanvas-open-btn svg path {
+        fill: var(--tp-common-black) !important;
+    }
+}
+
+// Ultra-specific targeting to override any other styles
+header.tp-header-area.tp-header-blog.header-sticky .tp-header-menu nav.tp-main-menu-content ul li a {
+    color: var(--tp-common-black) !important;
+    
+    &:hover {
+        color: var(--tp-theme-primary) !important;
+    }
+}
+
+// Force override for menu links
+.tp-header-blog.header-sticky .tp-header-menu > nav > ul > li > a {
+    color: var(--tp-common-black) !important;
+}
+
+// Force override for button
+.tp-header-blog.header-sticky .tp-inner-header-right-action .tp-inner-header-btn {
+    color: var(--tp-common-black) !important;
+    border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+// Animation for sticky header
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
