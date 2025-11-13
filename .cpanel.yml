@@ -1,0 +1,27 @@
+---
+###############################################################################
+# cPanel Git Version Control Deployment Configuration
+# Oura Studios Website - Auto Deploy dari GitHub
+###############################################################################
+
+deployment:
+  tasks:
+    # Set deployment path (sesuai dengan path di hosting DomaiNesia)
+    - export DEPLOYPATH=/home1/ourastud/app
+    - /bin/cp -R * $DEPLOYPATH
+    - cd $DEPLOYPATH
+    
+    # Install Node.js dependencies (production only)
+    - npm install --production
+    
+    # Build Next.js application
+    - npm run build
+    
+    # Log completion
+    - echo "Deployment completed successfully at $(date)"
+    - echo "Next.js build artifacts created in .next folder"
+    
+# Catatan:
+# - Path sudah disesuaikan dengan hosting DomaiNesia: /home1/ourastud/app
+# - Setelah deployment, aplikasi akan otomatis ter-build
+# - Restart aplikasi Node.js di cPanel setelah deployment

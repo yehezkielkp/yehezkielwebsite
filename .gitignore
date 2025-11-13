@@ -61,7 +61,6 @@ logs/
 *.crt
 
 # cPanel specific
-.cpanel.yml
 *.backup
 *.bak
 
