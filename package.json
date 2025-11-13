@@ -8,8 +8,7 @@
     "start": "next start",
     "start:server": "node server.js",
     "lint": "next lint",
-    "test:ssh": "bash test-ssh-connection.sh",
-    "test:ssh:ps": "powershell -ExecutionPolicy Bypass -File test-ssh-connection.ps1",
+    "test:ssh": "powershell -ExecutionPolicy Bypass -File test-ssh-simple.ps1",
     "deploy": "bash deploy-to-hosting.sh",
     "deploy:ps": "powershell -ExecutionPolicy Bypass -File deploy-to-hosting.ps1"
   },

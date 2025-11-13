@@ -2,7 +2,7 @@
 # Test berbagai konfigurasi SSH ke hosting DomaiNesia
 
 Write-Host "==========================================" -ForegroundColor Cyan
-Write-Host "🔍 SSH Connection Test - Oura Studios" -ForegroundColor Cyan
+Write-Host "SSH Connection Test - Oura Studios" -ForegroundColor Cyan
 Write-Host "==========================================" -ForegroundColor Cyan
 Write-Host ""
 
